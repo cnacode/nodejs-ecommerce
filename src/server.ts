@@ -1,15 +1,28 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import * as dotenv from "dotenv";
+import path from "path";
+
+dotenv.config({ path: path.resolve(__dirname, "./.env") });
+
 import express from "express";
+import type { Express } from "express";
+import bodyParser from "body-parser";
 
-const app = express();
-const PORT = 3000;
+import setupAPI from "./API/routes";
+import setupModels from "./Models";
+import setupCrones from "./Loaders/Crons";
 
-app.get("/", (req: express.Request, res: express.Response) => {
-  res.send("nodejs - express + typescript");
-});
+export const expressInstance: Express = express();
+expressInstance.use(bodyParser.json());
+const PORT = process.env.PORT;
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+(() => {
+  setupModels();
+
+  setupAPI();
+
+  expressInstance.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+  });
+
+  setupCrones();
+})();
