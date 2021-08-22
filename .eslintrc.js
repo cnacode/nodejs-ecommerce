@@ -4,6 +4,8 @@ module.exports = {
     es6: true,
     node: true,
   },
+  include: ["jest.config.js"],
+  ignorePatterns: ["./*.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     sourceType: "module",
@@ -19,5 +21,13 @@ module.exports = {
     "prettier",
     "prettier/@typescript-eslint",
   ],
-  rules: {},
+  rules: {
+    "no-unsafe-assignment": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
+  },
 };
