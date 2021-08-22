@@ -1,7 +1,7 @@
 # Features:
-API integration tests (partial coverage)
-Sequelize as ORM
-DB seeds (see below in scripts)
+- API integration tests (partial coverage)
+- Sequelize as ORM
+- DB seeds (see below in scripts)
 
 # environment valuables
 
