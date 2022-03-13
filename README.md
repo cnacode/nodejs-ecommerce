@@ -1,3 +1,6 @@
+# Problem Description
+https://docs.google.com/document/d/1HpUM6t8XHjPs-eZwdAgr3ScCR7lYMCeeubuSycDhY48/edit?usp=sharing
+
 # Features:
 - API integration tests (partial coverage)
 - Sequelize as ORM
